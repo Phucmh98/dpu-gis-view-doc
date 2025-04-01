@@ -12,16 +12,24 @@ let loadById = await viewer.loadTree3DTileUrl(urlLoadTree, objectTreeLoad?);
 
 ### objectTreeLoad
 
-| Prop         | Type    | Default |
-| ------------ | ------- | ------- |
-| id           | string  | -       |
-| name         | string  | -       |
-| parentID?    | string  | -       |
-| url?         | string  | -       |
-| translateId? | string  | -       |
-| loadType     | number  | -       |
-| isShow       | string  | true    |
-| isFolder     | boolean | false   |
+| Prop          | Type                 | Default  |
+| ------------- | -------------------- | -------- |
+| id            | string               | -        |
+| name          | string               | -        |
+| parentID?     | string \|\| undefine | undefine |
+| url?          | string \|\| undefine | undefine |
+| translateId?  | string \|\| undefine | undefine |
+| contentType   | string \|\| undefine | -        |
+| loadType      | number               | -        |
+| isShow        | boolean              | -        |
+| isFolder      | boolean              | -        |
+| x             | number \|\| undefine | undefine |
+| y             | number \|\| undefine | undefine |
+| z             | number \|\| undefine | undefine |
+| height        | number \|\| undefine | undefine |
+| latitude      | number \|\| undefine | undefine |
+| longitude     | number \|\| undefine | undefine |
+| maximumScreen | number \|\| undefine | undefine |
 
 ## Load theo URL
 
@@ -36,19 +44,71 @@ let loadById = await viewer?.loadKMZ(url:string, "Tên mô hình");
 ```
 
 ## Ví dụ
+
 Load theo Tree
+
 ```js
+const treesLoad = [
+  {
+    id: "e550baef-bd67-4f18-8b36-69dbeb2783a3",
+    name: "Điều phối 3",
+    parentID: null,
+    url: null,
+    translateId: null,
+    contentType: null,
+    fileType: null,
+    loadType: 0,
+    isShow: true,
+    isFolder: true,
+  },
+  {
+    id: "7b8d8393-1018-43ac-88e1-f4ad833b5448",
+    name: "Cong",
+    parentID: "e550baef-bd67-4f18-8b36-69dbeb2783a3",
+    url: null,
+    translateId: null,
+    contentType: null,
+    fileType: null,
+    loadType: 0,
+    isShow: true,
+    isFolder: true,
+  },
+  {
+    id: "69a2fd59-1e43-4491-80f6-7ced161df043",
+    name: "Thoai 2",
+    parentID: "e23ba525-6bc5-4a3e-9143-683c1a0b930a",
+    url: null,
+    translateId: null,
+    contentType: null,
+    fileType: null,
+    loadType: 0,
+    isShow: true,
+    isFolder: true,
+  },
+  {
+    id: "579fbb8a-ba2d-4116-a03a-a0904f135b62",
+    name: "QL57_DinhKhao0.08.kmz",
+    parentID: "69a2fd59-1e43-4491-80f6-7ced161df043",
+    url: "https://hcm.s3storage.vn/0535f034-0e0b-4d34-81cc-06d7d509d43a/Sites/Projects/c6079320-24ec-44a6-b6bc-fe84594a947b/Files/69a2fd59-1e43-4491-80f6-7ced161df043/579fbb8a-ba2d-4116-a03a-a0904f135b62.kmz",
+    translateId: null,
+    contentType: "kmz",
+    loadType: 0,
+    isShow: true,
+    isFolder: false,
+  },
+];
+
 let loadById = await viewer.loadTree3DTileUrl("", treesLoad);
 
 // defaultCameraView:IViewSave
-if (defaultCameraView) {   
-   viewer.loadViewCamera(defaultCameraView);
-}      
-else {
-    //Nếu không có defaultCameraView tự động di chuyển về Home
-    viewer.flyToHomeLocation();
+if (defaultCameraView) {
+  viewer.loadViewCamera(defaultCameraView);
+} else {
+  //Nếu không có defaultCameraView tự động di chuyển về Home
+  viewer.flyToHomeLocation();
 }
 ```
+
 - **`viewer.loadViewCamera`** xem tại "[loadViewCamera](sceneManage#loadviewcamera)"
 - **`viewer.flyToHomeLocation`** xem tại "[flyToHomeLocation](sceneManage#flytohomelocation)"
 - **`defaultCameraView: IViewSave `** xem tại "[IViewSave](sceneManage#iviewsave)"
