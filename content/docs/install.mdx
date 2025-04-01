@@ -47,7 +47,7 @@ let service = new DPUService();
 let viewerDPU = await service?.initView(option);
 
 ````
-"option" của initView được lấy tại [Option initView](install#option-initview)
+**`option`** của initView được lấy tại [Option initView](install#option-initview)
 </div>
 ## Ví dụ
 ```js
@@ -70,27 +70,29 @@ export default function Home() {
 ````
 
 ## Option initView
-| Prop | Type | Default |
-| ----- | ----------- |----------- |
-| `containerId` | string | [idView](install#khởi-tạo-view) |
-| `token` | string | [token](install#lấy-api-token) |
-| `inputOptionToolBar` | ToolbarOptions | [ToolbarOptions](install#khởi-tạo-view) |
-| `language` | "vn" \| "en" | 'vn' |
+
+| Prop                 | Type                      | Default                                 | Note                                                 |
+| -------------------- | ------------------------- | --------------------------------------- | ---------------------------------------------------- |
+| `containerId`        | string                    | -                                       | Id của thẻ chứa View [idView](install#khởi-tạo-view) |
+| `token`              | string                    | -                                       | Token được lấy ở [token](install#lấy-api-token)      |
+| `inputOptionToolBar` | `ToolbarOptions \|\| {} ` | [ToolbarOptions](install#khởi-tạo-view) | Khởi tạo thanh công cụ                               |
+| `language`           | "vn" \| "en"              | "vn"                                    | Ngôn ngữ mặc định                                    |
 
 ## ToolbarOptions object
-| Prop | Type | Default |
-| ----- | ----------- |----------- |
-| `treeTileModel` | boolean | `true` |
-| `homeLocation` | boolean | `true` |
-| `yourLocation` | boolean | `true` |
-| `mapWeather` | boolean | `true` |
-| `measure` | boolean | `true` |
-| `labelPoint` | boolean | `false` |
-| `dataProperties` | boolean | `true` |
-| `flyCamera` | boolean | `false` |
-| `point` | boolean | `true` |
-| `issuePoint` | boolean | `false` |
-| `flyToVietNam` | boolean | `true` |
-| `dataProperties` | boolean | `true` |
-| `requestRenderMode` | boolean | `true` |
 
+Tùy chọn hiển thị thanh công cụ
+
+| Prop                | Type    | Default | Note                                  |
+| ------------------- | ------- | ------- | ------------------------------------- |
+| `treeTileModel`     | boolean | `true`  | Hiển thị mô hình                      |
+| `homeLocation`      | boolean | `true`  | Hiển thị nút di chuyển về mặc định    |
+| `yourLocation`      | boolean | `true`  | Hiển thị nút vị trí                   |
+| `mapWeather`        | boolean | `true`  | Hiển thị nút tùy chỉnh bản đồ         |
+| `measure`           | boolean | `true`  | Hiển thị nút đo khoảng cách           |
+| `labelPoint`        | boolean | `false` | Hiển thị nút chú thích điểm           |
+| `dataProperties`    | boolean | `true`  | Hiển thị nút thông tin đối tượng      |
+| `flyCamera`         | boolean | `false` | Hiển thị nút di chuyển theo lũy tuyến |
+| `point`             | boolean | `true`  | Hiển thị nút tọa độ                   |
+| `issuePoint`        | boolean | `false` | Hiển thị nút tọa độ chú thích         |
+| `flyToVietNam`      | boolean | `true`  | Di chuyển mặc định về Việt Nam        |
+| `requestRenderMode` | boolean | `true`  | Tự động render                        |
