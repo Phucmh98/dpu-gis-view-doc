@@ -1,0 +1,96 @@
+---
+title: Cài đặt
+description: Hưỡng dẫn cài đặt DPU Gis View
+---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { TypeTable } from "fumadocs-ui/components/type-table";
+
+## Các bước khởi tạo View
+
+<div className='fd-steps [&_h3]:fd-step'>
+ 
+### Lấy API Token
+- Gọi API để lấy token, truyền vào clientId, clientSecret, scopes (DataRead)
+- Phương thức **"POST"**
+- URL: 
+```js 
+https://translateservicedev.corebim.com/authApi/User/GetToken
+```
+- Data: 
+```js
+{
+  "clientId": " clientId ",
+  "clientSecret": " clientSecret ",
+  "scopes": [
+    0
+  ]
+}
+```
+### Khởi tạo View
+- Cài đặt thư viện:
+```ts tab="npm"
+npm i "@dp_unity/dpu-gis-viewer"
+```
+```ts tab="yarn"
+yarn add "@dp_unity/dpu-gis-viewer"
+```
+- Khởi tạo thẻ chứa view:
+```jsx
+  <div style={{ height: '100%' }} id="DPU-gis-view" ref={cesiumViewerContainerRef}></div>
+```
+- Khởi tạo view:
+```tsx
+import { DPUService } from "@dp_unity/dpu-gis-viewer";
+
+let service = new DPUService();
+let viewerDPU = await service?.initView(option);
+
+````
+"option" của initView được lấy tại [Option initView](install#option-initview)
+</div>
+## Ví dụ
+```js
+
+import { DPUService } from "@dp_unity/dpu-gis-viewer";
+
+export default function Home() {
+  const optionToolbar: ToolbarOptions = {
+      labelPoint: true,
+      flyCamera: true,
+  };
+
+  const service = new DPUService();
+  const viewerDPU = await service?.initView("DPU-gis-view","token",optionToolbar,"vn");
+
+  return (
+    <div style={{ height: '100%' }} id="DPU-gis-view"></div>
+  )
+}
+````
+
+## Option initView
+| Prop | Type | Default |
+| ----- | ----------- |----------- |
+| `containerId` | string | [idView](install#khởi-tạo-view) |
+| `token` | string | [token](install#lấy-api-token) |
+| `inputOptionToolBar` | ToolbarOptions | [ToolbarOptions](install#khởi-tạo-view) |
+| `language` | "vn" \| "en" | 'vn' |
+
+## ToolbarOptions object
+| Prop | Type | Default |
+| ----- | ----------- |----------- |
+| `treeTileModel` | boolean | `true` |
+| `homeLocation` | boolean | `true` |
+| `yourLocation` | boolean | `true` |
+| `mapWeather` | boolean | `true` |
+| `measure` | boolean | `true` |
+| `labelPoint` | boolean | `false` |
+| `dataProperties` | boolean | `true` |
+| `flyCamera` | boolean | `false` |
+| `point` | boolean | `true` |
+| `issuePoint` | boolean | `false` |
+| `flyToVietNam` | boolean | `true` |
+| `dataProperties` | boolean | `true` |
+| `requestRenderMode` | boolean | `true` |
+

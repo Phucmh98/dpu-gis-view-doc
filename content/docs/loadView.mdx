@@ -1,0 +1,54 @@
+---
+title: Khởi tạo mô hình
+---
+
+## Load theo Tree tile url
+
+```js
+let loadById = await viewer.loadTree3DTileUrl(urlLoadTree, objectTreeLoad?);
+```
+
+- **`urlLoadTree: string || "" `** Đối với trường hợp có "[objectTreeLoad](loadView#objecttreeload)" thì đặt **`urlLoadTree = "" `**
+
+### objectTreeLoad
+
+| Prop         | Type    | Default |
+| ------------ | ------- | ------- |
+| id           | string  | -       |
+| name         | string  | -       |
+| parentID?    | string  | -       |
+| url?         | string  | -       |
+| translateId? | string  | -       |
+| loadType     | number  | -       |
+| isShow       | string  | true    |
+| isFolder     | boolean | false   |
+
+## Load theo URL
+
+```js
+let loadById = await viewer?.load3DTileUrl(url:string, "Tên mô hình");
+```
+
+## Load theo URL file KMZ
+
+```js
+let loadById = await viewer?.loadKMZ(url:string, "Tên mô hình");
+```
+
+## Ví dụ
+Load theo Tree
+```js
+let loadById = await viewer.loadTree3DTileUrl("", treesLoad);
+
+// defaultCameraView:IViewSave
+if (defaultCameraView) {   
+   viewer.loadViewCamera(defaultCameraView);
+}      
+else {
+    //Nếu không có defaultCameraView tự động di chuyển về Home
+    viewer.flyToHomeLocation();
+}
+```
+- **`viewer.loadViewCamera`** xem tại "[loadViewCamera](sceneManage#loadviewcamera)"
+- **`viewer.flyToHomeLocation`** xem tại "[flyToHomeLocation](sceneManage#flytohomelocation)"
+- **`defaultCameraView: IViewSave `** xem tại "[IViewSave](sceneManage#iviewsave)"

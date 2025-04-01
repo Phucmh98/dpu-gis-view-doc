@@ -1,0 +1,40 @@
+---
+title: Quản lý view
+---
+
+## saveViewCamera
+Lưu lại góc nhìn của camera
+```js
+const saveViewer = viewer.saveViewCamera();
+```
+- Trả về saveViewer với type là [IViewSave](sceneManage#lưu-view-camera)
+
+## loadViewCamera
+Set lại góc nhìn của camera
+```js
+const saveViewer = viewer.loadViewCamera(cameraView: IViewSave);
+```
+- cameraView với type là [IViewSave](sceneManage#lưu-view-camera)
+
+## flyToHomeLocation
+
+View tự động di chuyển về vị trí [setLocationHome](sceneManage#flytohomelocation) (Đối với trường hợp không gán giá trị cho setLocationHome thì động di chuyển về boundingBox của tất cả mô hình)
+```js
+viewer.flyToHomeLocation();
+```
+
+## setLocationHome
+
+- Lưu lại vị trí mặc định (Nếu không gán thì tự động tính toán về boundingBox của tất cả mô hình và lấy vị trí của nó)
+```js
+viewer.setLocationHome(longitude: number, latitude: number, height: number);
+```
+
+## IViewSave
+
+| Prop     | Type   | Default |
+| -------- | ------ | ------- |
+| `heading`  | number | -       |
+| `pitch`    | number | -       |
+| `position` | `{x:number,y:number,z:number}` | -       |
+| `roll`     | number | -       |
