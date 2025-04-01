@@ -11,14 +11,12 @@ export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
       <>
-        <svg
-          width="24"
-          height="24"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-label="Logo"
-        >
-          <circle cx={12} cy={12} r={12} fill="currentColor" />
-        </svg>
+        <img
+          src="/asset/img/favicon.ico"  // Đường dẫn tới logo của bạn
+          alt="DPU-logo"
+          width={24}               // Điều chỉnh kích thước của logo
+          height={24}
+        />
         Document
       </>
     ),
