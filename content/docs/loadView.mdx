@@ -59,7 +59,7 @@ let loadById = await viewer?.load3DTileById(id:string, name?: "Tên mô hình", 
 ## Load theo URL file KMZ (KML)
 
 ```js
-let loadById = await viewer?.loadKMZ(url:string, "Tên mô hình");
+let loadByKMZ = await viewer?.loadKMZ(url:string, "Tên mô hình");
 ```
 
 ## IInputObjs3DTile
@@ -129,7 +129,7 @@ const treesLoad = [
   },
 ];
 
-let loadById = await viewer.loadTree3DTileUrl("", treesLoad);
+let loadTreeByData = await viewer.loadTree3DTileUrl("", treesLoad);
 
 // defaultCameraView:IViewSave
 if (defaultCameraView) {

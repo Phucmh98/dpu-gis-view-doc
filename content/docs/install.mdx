@@ -37,17 +37,17 @@ yarn add "@dp_unity/dpu-gis-viewer"
 ```
 - Khởi tạo thẻ chứa view:
 ```jsx
-  <div style={{ height: '100%' }} id="DPU-gis-view" ref={cesiumViewerContainerRef}></div>
+<div style={{ height: '100%' }} id="DPU-gis-view"></div>
 ```
 - Khởi tạo view:
 ```tsx
 import { DPUService } from "@dp_unity/dpu-gis-viewer";
 
 let service = new DPUService();
-let viewerDPU = await service?.initView(option);
+let viewerDPU = await service?.initView("DPU-gis-view", "token", option, "vn");
 
 ````
-**`option`** của initView được lấy tại [Option initView](install#toolbaroptions-object)
+-`option` của initView được lấy tại [Option initView](install#toolbaroptions-object)
 </div>
 ## Ví dụ
 ```js
@@ -61,7 +61,7 @@ export default function Home() {
   };
 
   const service = new DPUService();
-  const viewerDPU = await service?.initView("DPU-gis-view","token",optionToolbar,"vn");
+  const viewerDPU = await service?.initView("DPU-gis-view", "token", optionToolbar, "vn");
 
   return (
     <div style={{ height: '100%' }} id="DPU-gis-view"></div>
