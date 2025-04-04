@@ -2,6 +2,14 @@
 title: Quản lý view
 ---
 
+## setDarkTheme
+
+Hàm set Dark/Light theme cho viewer
+
+```js
+viewer.setDarkTheme();
+```
+
 ## saveViewCamera
 
 Lưu lại góc nhìn của camera
@@ -32,10 +40,28 @@ viewer.flyToHomeLocation();
 
 ## setLocationHome
 
-- Lưu lại vị trí mặc định (Nếu không gán thì tự động tính toán về boundingBox của tất cả mô hình và lấy vị trí của nó)
+Lưu lại vị trí mặc định (Nếu không gán thì tự động tính toán về boundingBox của tất cả mô hình và lấy vị trí của nó)
 
 ```js
 viewer.setLocationHome(longitude: number, latitude: number, height: number);
+```
+
+## flyToLocation
+
+Di chuyển đến tọa độ
+
+```js
+viewer.flyToLocation(longitude: number, latitude: number, height?: number, duration?: number);
+```
+- default `height = 1000`
+- default `duration = 2`
+
+## destroyView
+
+Hàm hủy View
+
+```js
+viewer.destroyView();
 ```
 
 ## IViewSave

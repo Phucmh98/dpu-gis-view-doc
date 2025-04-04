@@ -2,8 +2,10 @@
 title: Khởi tạo mô hình
 ---
 
-## Load theo Tree tile url
+Hỗ trợ các định dạng `IFC 2x3`, `IFC 4.0`, `IFC 4.1`, `FBX`, `KML`, `KMZ`, `3dtile (Cesium)`
 
+## loadTree3DTileUrl
+Hàm khởi tạo dạng cây thư mục mô hình
 ```js
 let loadById = await viewer.loadTree3DTileUrl(urlLoadTree, objectTreeLoad?);
 ```
@@ -12,36 +14,65 @@ let loadById = await viewer.loadTree3DTileUrl(urlLoadTree, objectTreeLoad?);
 
 ### objectTreeLoad
 
-| Prop          | Type                 | Default  |
-| ------------- | -------------------- | -------- |
-| id            | string               | -        |
-| name          | string               | -        |
-| parentID?     | string \|\| undefine | undefine |
-| url?          | string \|\| undefine | undefine |
-| translateId?  | string \|\| undefine | undefine |
-| contentType   | string \|\| undefine | -        |
-| loadType      | number               | -        |
-| isShow        | boolean              | -        |
-| isFolder      | boolean              | -        |
-| x             | number \|\| undefine | undefine |
-| y             | number \|\| undefine | undefine |
-| z             | number \|\| undefine | undefine |
-| height        | number \|\| undefine | undefine |
-| latitude      | number \|\| undefine | undefine |
-| longitude     | number \|\| undefine | undefine |
-| maximumScreen | number \|\| undefine | undefine |
+| Prop            | Type                 | Default  |
+| --------------- | -------------------- | -------- |
+| `id`            | string               | -        |
+| `name`          | string               | -        |
+| `parentID`?     | string \|\| undefine | undefine |
+| `url`?          | string \|\| undefine | undefine |
+| `translateId`?  | string \|\| undefine | undefine |
+| `contentType`   | string \|\| undefine | -        |
+| `loadType`      | number               | -        |
+| `isShow`        | boolean              | -        |
+| `isFolder`      | boolean              | -        |
+| `x`             | number \|\| undefine | undefine |
+| `y`             | number \|\| undefine | undefine |
+| `z`             | number \|\| undefine | undefine |
+| `height`        | number \|\| undefine | undefine |
+| `latitude`      | number \|\| undefine | undefine |
+| `longitude`     | number \|\| undefine | undefine |
+| `maximumScreen` | number \|\| undefine | undefine |
 
-## Load theo URL
-
+## load3DTileUrl
+Hàm khởi tạo mô hình theo đường dẫn
 ```js
-let loadById = await viewer?.load3DTileUrl(url:string, "Tên mô hình");
+let loadByUrl = await viewer?.load3DTileUrl(url:string, name?: "Tên mô hình", urlConnect?: string, inputObjs?: IInputObjs3DTile);
+```
+- `url`: Đường dẫn đến mô hình
+- `name`: Tên mô hình (đế trống tự động lấy chuỗi) 
+- `urlConnect`: Đường dẫn đến file liên kết (tùy chọn)
+- `inputObjs`: Thông số thay đổi cho mô hình (tùy chọn xem kiểu dự liệu tại [IInputObjs3DTile](loadView#iinputobjs3dtile))
+
+## load3DTileById
+Hàm khởi tạo mô hình theo Id \
+Chỉ trường hợp khởi tạo bằng `load3DTileById` mới xem được thuộc tính của đối tượng
+```js
+let loadById = await viewer?.load3DTileById(id:string, name?: "Tên mô hình", urlConnect?: string, inputObjs?: IInputObjs3DTile);
 ```
 
-## Load theo URL file KMZ
+- `id`: id của mô hình
+- `name`: Tên mô hình (đế trống tự động lấy chuỗi) 
+- `urlConnect`: Đường dẫn đến file liên kết (tùy chọn)
+- `inputObjs`: Thông số thay đổi cho mô hình (tùy chọn xem kiểu dự liệu tại [IInputObjs3DTile](loadView#iinputobjs3dtile))
+
+
+## Load theo URL file KMZ (KML)
 
 ```js
 let loadById = await viewer?.loadKMZ(url:string, "Tên mô hình");
 ```
+
+## IInputObjs3DTile
+
+| Prop             | Type                 | Default  |
+| ---------------- | -------------------- | -------- |
+| `x`?             | number \|\| undefine | undefine |
+| `y`?             | number \|\| undefine | undefine |
+| `z`?             | number \|\| undefine | undefine |
+| `height`?        | number \|\| undefine | undefine |
+| `latitude`?      | number \|\| undefine | undefine |
+| `longitude`?     | number \|\| undefine | undefine |
+| `maximumScreen`? | number \|\| undefine | undefine |
 
 ## Ví dụ
 
